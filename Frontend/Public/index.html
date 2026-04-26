@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Biblioteca Digital</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <h1>Mi Biblioteca Digital</h1>
+    <p>Administra tus libros favoritos, pendientes y terminados.</p>
+  </header>
+
+  <main class="contenedor">
+
+    <section class="indicadores">
+      <div>
+        <h3 id="totalLibros">0</h3>
+        <p>Total de libros</p>
+      </div>
+
+      <div>
+        <h3 id="librosTerminados">0</h3>
+        <p>Terminados</p>
+      </div>
+
+      <div>
+        <h3 id="librosPendientes">0</h3>
+        <p>Pendientes</p>
+      </div>
+
+      <div>
+        <h3 id="promedioCalificacion">0</h3>
+        <p>Promedio</p>
+      </div>
+    </section>
+
+    <section class="formulario">
+      <h2 id="tituloFormulario">Registrar libro</h2>
+
+      <form id="formLibro">
+        <input type="hidden" id="libroId">
+
+        <input type="text" id="titulo" placeholder="Título del libro" required minlength="2">
+        <input type="text" id="autor" placeholder="Autor" required minlength="2">
+
+        <select id="genero" required>
+          <option value="">Selecciona el género</option>
+          <option value="Novela">Novela</option>
+          <option value="Fantasía">Fantasía</option>
+          <option value="Terror">Terror</option>
+          <option value="Romance">Romance</option>
+          <option value="Educativo">Educativo</option>
+          <option value="Otro">Otro</option>
+        </select>
+
+        <select id="estado" required>
+          <option value="">Selecciona el estado</option>
+          <option value="Pendiente">Pendiente</option>
+          <option value="Leyendo">Leyendo</option>
+          <option value="Terminado">Terminado</option>
+        </select>
+
+        <div id="grupoCalificacion" class="oculto">
+          <input type="number" id="calificacion" placeholder="Calificación 1 a 5" min="1" max="5">
+        </div>
+
+        <input type="text" id="portada" placeholder="URL de portada opcional">
+
+        <textarea id="resena" placeholder="Reseña personal" required minlength="5"></textarea>
+
+        <div class="botones-formulario">
+          <button type="submit" id="btnGuardar">Guardar libro</button>
+          <button type="button" id="btnCancelar">Cancelar</button>
+        </div>
+      </form>
+
+      <p id="mensaje"></p>
+    </section>
+
+    <section class="busqueda">
+      <input type="text" id="buscar" placeholder="Buscar por título, autor o género">
+
+      <select id="filtroEstado">
+        <option value="">Todos los estados</option>
+        <option value="Pendiente">Pendiente</option>
+        <option value="Leyendo">Leyendo</option>
+        <option value="Terminado">Terminado</option>
+      </select>
+    </section>
+
+    <section>
+      <h2 class="subtitulo">Listado de libros</h2>
+      <div id="listaLibros" class="lista-libros"></div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
