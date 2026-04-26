@@ -19,10 +19,10 @@ const libroRoutes = require("./routes/libroRoutes");
 
 app.use("/api/libros", libroRoutes);
 
-app.use(express.static(path.join(__dirname, "../Frontend/public")));
+app.use(express.static(path.join(__dirname, "../Frontend/Public")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../Frontend/public/index.html"));
+  res.sendFile(path.join(__dirname, "../Frontend/Public/index.html"));
 });
 
 const PORT = process.env.PORT || 3000;
